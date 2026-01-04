@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Marshmallow</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+    <div class="container">
+       <nav>
+            <a href="../index.html">Marshmallow</a>
+            <a href="../Posts/posts.html">Posts</a>
+            <span>Gallery</span>
+            <a href="../songs/songs.html">Songs</a>
+
+        </nav>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="../assets/images/PARK.JPG" alt="park">
+                <div class="caption">Sha Tin Park, Hong Kong</div>
+                <div class="caption">Feb 2025</div>
+            </div>
+
+           <div class="gallery-item">
+                <img src="../assets/images/IMG_1331.JPG" alt="cat">
+                <div class="caption">Kowloon Park, Hong Kong</div>
+                <div class="caption">May 2025</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../assets/images/P7160797.JPG" alt="Sanxindui">
+                <div class="caption">Sichuan, China </div>
+                <div class="caption">Jul 2025</div>
+            </div>
+
+         
+            <div class="gallery-item">
+                <img src="../assets/images/P7181288.JPG" alt="Chongqing">
+                <div class="caption">Chongqing, China </div>
+                <div class="caption">Jul 2025</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../assets/images/P1011493.JPG" alt="Butterfly">
+                <div class="caption">Tin Shui Wai, Hong Kong </div>
+                <div class="caption">Aug 2025</div>
+            </div>
+
+        <!--Lightbox-->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="">
+        <div id="lightbox-caption"></div>
+        <div id="lightbox-date"></div>
+
+    </div>
+
+    <script>
+        // 1. Get references to elements
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxdate = document.getElementById('lightbox-date');
+
+        // 2. Add click event to all gallery images
+        const images = document.querySelectorAll('.gallery-item img');
+        
+        images.forEach(image => {
+            image.addEventListener('click', (e) => {
+                // Prevent bubbling if needed, though simple click is fine here
+                lightbox.style.display = 'flex'; // Show the overlay
+                lightboxImg.src = e.target.src;  // Copy image source
+                
+                // Optional: Get the text from the sibling caption div
+                const captionText = e.target.nextElementSibling.innerText;
+                lightboxCaption.innerText = captionText;
+
+            });
+        });
+
+        // 3. Function to close the lightbox
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+
+        </div>
+
+        <footer>
+        <div>
+            &copy; 2026 Marshmallow
+        </div>
+        <div>
+            <a href="https://www.instagram.com/marshmallow._hugo/">Instagram</a>
+            <a href="">Email</a>
+        </div>
+    </footer>
+
+    </div>
+
+</body>
+</html>

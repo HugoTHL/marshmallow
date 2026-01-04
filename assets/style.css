@@ -1,0 +1,202 @@
+html, body {
+    height: 100%; /* Essential for the layout to fill the screen */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    background-color: #EBEBEB;
+}
+
+        /* 2. Layout Container */
+       .container {
+    max-width: 680px; 
+    margin: 0 auto;
+    padding: 40px 20px;
+    
+    /* FLEXBOX MAGIC STARTS HERE */
+    min-height: 100vh;      /* Forces container to be at least as tall as the screen */
+    box-sizing: border-box; /* Ensures padding doesn't add to the width/height calculation */
+    display: flex;          /* Turns the container into a flexbox */
+    flex-direction: column; /* Stacks items vertically */
+}
+        /* 3. Navigation */
+        nav {
+            margin-bottom: 60px;
+            color: #888;
+        }
+        nav a {
+            text-decoration: none;
+            color: #888;
+            margin-right: 15px;
+            font-size: 0.95rem;
+        }
+        nav span { /* The site title */
+            color: #333;
+            font-weight: 500;
+            margin-right: 20px;
+        }
+
+        /* 4. Article Styling */
+        article {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: #3FA9F5; /* The specific blue from your image */
+        }
+
+        h2 a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        /* 5. Metadata (Date & Tags) */
+        .meta {
+            font-size: 0.85rem;
+            color: #999;
+        }
+        
+        .tags {
+            margin-left: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            /* Creates columns that are at least 150px wide, fitting as many as possible */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+            gap: 20px; /* Space between images */
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 150px; /* Fixed height for uniformity */
+            object-fit: cover; /* Crops image cleanly to fill the square */
+            background-color: #ddd; /* Placeholder color while loading */
+            border-radius: 2px; /* Slight softening of corners */
+            transition: opacity 0.2s;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .caption {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 8px;
+        }
+        
+        /* --- Lightbox Styles --- */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stays in place when scrolling */
+    z-index: 1000; /* Sits on top of everything */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if image is massive */
+    background-color: rgba(235, 235, 235, 0.95); /* Matches your site bg, but opaque */
+    
+    /* Flexbox to center the image */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* The Image inside the Lightbox */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px; /* Max width constraint */
+    max-height: 80vh; /* Don't be taller than screen */
+    object-fit: contain; /* Ensure ratio stays correct */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 80vh;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+/* The Caption text */
+#lightbox-caption {
+    margin-top: 15px;
+    color: #555;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* The Close Button (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #999;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+        /* 6. Footer Styling */
+footer {
+    /* "margin-top: auto" is the key. 
+       In a flex column, this pushes the element 
+       as far down as possible. */
+    margin-top: auto;       
+    
+    padding-top: 30px;      
+    padding-bottom: 30px;     
+    border-top: 1px solid #DCDCDC; 
+    font-size: 0.85rem;     
+    color: #999;
+    display: flex; 
+    justify-content: space-between; 
+}
+footer a {
+    color: #999;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #3FA9F5; /* Hovers blue to match your titles */
+}
+
+a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #3FA9F5; /* Hovers blue to match your titles */
+}
+
